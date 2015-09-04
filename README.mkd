@@ -32,7 +32,7 @@ Regular expresss to match an integer.
 numberFloat
 -----------
 
-Regular expresss to match an float (decimal).
+Regular expresss to match a float.
 
     <script type="text/javascript"> 
     $(document).ready(function(){ 
@@ -109,6 +109,40 @@ Regular expression to match an email address.
            msg = email + " is an email address";
         } else {
            msg = email + " is not an email address";
+        }
+        alert(msg); 
+    });  
+    </script>
+
+phoneNumberUS
+-------------
+
+Regular expression to match a U.S. phone number.
+
+    <script type="text/javascript"> 
+    $(document).ready(function(){ 
+        var phone = '(555)555-5555';
+        if ( phone.match($.regexpCommon('phoneNumberUS')) ) {
+           msg = phone + " is a phone number";
+        } else {
+           msg = phone + " is not a phone number";
+        }
+        alert(msg); 
+    });  
+    </script>
+
+zipCodeUS
+---------
+
+Regular expression to match a U.S. zip code.
+
+    <script type="text/javascript"> 
+    $(document).ready(function(){ 
+        var zip = '12345-1111';
+        if ( zip.match($.regexpCommon('zipCodeUS')) ) {
+           msg = zip + " is a U.S. zip code";
+        } else {
+           msg = zip + " is not a U.S. zip code";
         }
         alert(msg); 
     });  
