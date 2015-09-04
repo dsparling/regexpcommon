@@ -1,7 +1,7 @@
 /**
  * jquery.regexpCommon.js: Common Regular Expressions - jQuery plugin
  *
- * Copyright (c) 2008 Doug Sparling
+ * Copyright (c) 2008-2015 Doug Sparling
  * Dual licensed under the MIT and GPL licenses:
  * http://www.opensource.org/licenses/mit-license.php
  * http://www.gnu.org/licenses/gpl.html
@@ -17,7 +17,7 @@
  * @name $.regexpCommon 
  * @cat Plugins/Utilities
  * @author Doug Sparling/doug.sparling@gmail.com
- * @version 0.3.0
+ * @version 0.4.0
  */
 (function($) {
   $.regexpCommon = function(regexpDesc) {
@@ -31,6 +31,9 @@
     },
     numberFloat : function() {
       return /^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$/;
+    },
+    numberRoman : function() {
+      return /^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$/;
     },
     // email
     email : function() {
