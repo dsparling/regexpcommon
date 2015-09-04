@@ -1,5 +1,34 @@
-jQuery regexpCommon Plugin 0.4.0
-=================================
+regexpCommon
+============
+
+jQuery plugin that provides commonly used regular expressions.
+
+Installation
+============
+
+Download jquery.regexpCommon.js and place it in your website folder.
+In you website page, add this code to load the file :
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <script src="jquery.regexpCommon.js"></script>
+
+SSN Function
+------------
+
+Regular expression to check for a social security number.
+
+    <script type="text/javascript"> 
+    $(document).ready(function(){ 
+        var ssn = '123-45-6789';
+        if ( ssn.match($.regexpCommon('ssn')) ) {
+           msg = ssn + " is a SSN";
+        } else {
+           msg = ssn + " is not a SSN";
+        }
+        alert(msg); 
+    });  
+    </script>
+
 
 ## Documentation
 
