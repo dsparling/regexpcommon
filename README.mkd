@@ -12,10 +12,61 @@ In you website page, add this code to load the file :
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
       <script src="jquery.regexpCommon.js"></script>
 
-SSN Function
-------------
+numberInteger
+-------------
 
-Regular expression to check for a social security number.
+Regular expresss to match an integer.
+
+    <script type="text/javascript"> 
+    $(document).ready(function(){ 
+        var integer = '42';
+        if ( integer.match($.regexpCommon('numberInteger')) ) {
+           msg = integer + " is an integer";
+        } else {
+           msg = integer + " is not an integer";
+        }
+        alert(msg); 
+    });  
+    </script>
+
+numberFloat
+-----------
+
+Regular expresss to match an float (decimal).
+
+    <script type="text/javascript"> 
+    $(document).ready(function(){ 
+        var float = '42.42';
+        if ( float.match($.regexpCommon('numberFloat')) ) {
+           msg = float + " is a float";
+        } else {
+           msg = float + " is not a float";
+        }
+        alert(msg); 
+    });  
+    </script>
+
+numberRoman
+-----------
+
+Regular expresss to match a Roman number. (up to 3999)
+
+    <script type="text/javascript"> 
+    $(document).ready(function(){ 
+        var romanNumber = 'LXII';
+        if ( romanNumber.match($.regexpCommon('numberRoman')) ) {
+           msg = romanNumber + " is a Roman number";
+        } else {
+           msg = romanNumber + " is not a Roman number";
+        }
+        alert(msg); 
+    });  
+    </script>
+
+ssn
+---
+
+Regular expression to match a social security number.
 
     <script type="text/javascript"> 
     $(document).ready(function(){ 
@@ -29,83 +80,36 @@ Regular expression to check for a social security number.
     });  
     </script>
 
+url
+---
 
-## Documentation
+Regular expression to match a URL.
 
-    <!DOCTYPE html>
-    <html>
-    <head>
-      <meta charset="UTF-8">
-      <title>jquery regexpCommon</title>
-    
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-      <script src="jquery.regexpCommon.js"></script>
-    
-      <script type="text/javascript">
-    
-        $(function($) {
-          var message;
-    
-          var ssn = '123-45-6789';
-          if ( ssn.match($.regexpCommon('ssn')) ) {
-           message = ssn + " is a SSN<br/>"
-          }
-    
-          var url = 'http://jquery.com/';
-          if ( url.match($.regexpCommon('url')) ) {
-           message += url + " is a URL<br/>";
-          }
-    
-          var email = 'blah@blah.com';
-          if ( email.match($.regexpCommon('email')) ) {
-           message += email + " is a valid email address<br/>";
-          }
-    
-          var romanNumber = 'LXII';
-          if (romanNumber.match($.regexpCommon('numberRoman')) ) {
-           message += romanNumber + " is an Roman number<br/>";
-          }
-    
-          var phone = '(555)555-5555';
-          if (phone.match($.regexpCommon('phoneNumberUS')) ) {
-           message += phone + " is an US phone number<br/>";
-          }
-    
-          var zip = '12345-1111';
-          if (zip.match($.regexpCommon('zipCodeUS')) ) {
-           message += zip + " is an US zip code<br/>";
-          }
-    
-          var currencyUS = '$1,000.00';
-          if (currencyUS.match($.regexpCommon('currencyUS')) ) {
-           message += currencyUS + " is a US currency<br/>";
-          }
-    
-          var htmlHex = '#ffffff';
-          if (htmlHex.match($.regexpCommon('htmlHexCode')) ) {
-           message += htmlHex + " is an HTML Hex code<br/>";
-          }
-    
-          var quadIP = '127.0.0.1';
-          if (quadIP.match($.regexpCommon('dottedQuadIP')) ) {
-           message += quadIP + " is a Quad IP Address<br/>";
-          }
-    
-          var macAddress = '08:00:69:02:01:FC';
-          if (macAddress.match($.regexpCommon('macAddress')) ) {
-           message += macAddress + " is a MAC Address<br/>";
-          }
-    
-         $('#message').html(message);
-        });
-    
-      </script>
-    
-    </head>
-    
-    <body>
-    
-    <div id='message'></div>
-    
-    </body>
-    </html>
+    <script type="text/javascript"> 
+    $(document).ready(function(){ 
+        var url = 'http://jquery.com/';
+        if ( url.match($.regexpCommon('url')) ) {
+           msg = url + " is a URL";
+        } else {
+           msg = url + " is not a URL";
+        }
+        alert(msg); 
+    });  
+    </script>
+
+email
+-----
+
+Regular expression to match an email address.
+
+    <script type="text/javascript"> 
+    $(document).ready(function(){ 
+        var email = 'blah@blah.com';
+        if ( email.match($.regexpCommon('email')) ) {
+           msg = email + " is an email address";
+        } else {
+           msg = email + " is not an email address";
+        }
+        alert(msg); 
+    });  
+    </script>
