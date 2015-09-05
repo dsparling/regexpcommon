@@ -4,6 +4,7 @@ describe("Regexpcommon", function() {
   var floatValue = '42.42';
   var romanValue = 'XLII';
   var ssnValue = '123-45-6789';
+  var urlValue = 'http://www.example.com/';
 
   describe("numberInteger", function() {
     it("'" + integerValue + "' should match numberInteger", function() {
@@ -72,4 +73,22 @@ describe("Regexpcommon", function() {
       expect(match).toBeNull();
     });
   });
+
+  describe("url", function() {
+    it("'" + urlValue + "' should match url", function() {
+      match = urlValue.match($.regexpCommon('url'));
+      expect(match[0]).not.toBeNull();
+    });
+
+    it("'" + urlValue + "' should equal '" + urlValue + "'", function() {
+      match = urlValue.match($.regexpCommon('url'));
+      expect(match[0]).toBe(urlValue);
+    });
+
+    it("'" + stringValue + "' should not match url", function() {
+      match = stringValue.match($.regexpCommon('url'));
+      expect(match).toBeNull();
+    });
+  });
+
 });
