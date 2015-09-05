@@ -5,6 +5,7 @@ describe("Regexpcommon", function() {
   var romanValue = 'XLII';
   var ssnValue = '123-45-6789';
   var urlValue = 'http://www.example.com/';
+  var emailValue = 'test@example.com';
 
   describe("numberInteger", function() {
     it("'" + integerValue + "' should match numberInteger", function() {
@@ -87,6 +88,23 @@ describe("Regexpcommon", function() {
 
     it("'" + stringValue + "' should not match url", function() {
       match = stringValue.match($.regexpCommon('url'));
+      expect(match).toBeNull();
+    });
+  });
+
+  describe("email", function() {
+    it("'" + emailValue + "' should match email", function() {
+      match = emailValue.match($.regexpCommon('email'));
+      expect(match[0]).not.toBeNull();
+    });
+
+    it("'" + emailValue + "' should equal '" + emailValue + "'", function() {
+      match = emailValue.match($.regexpCommon('email'));
+      expect(match[0]).toBe(emailValue);
+    });
+
+    it("'" + stringValue + "' should not match email", function() {
+      match = stringValue.match($.regexpCommon('email'));
       expect(match).toBeNull();
     });
   });
