@@ -87,7 +87,7 @@ Regular expression to match a URL.
 
     <script type="text/javascript"> 
     $(document).ready(function(){ 
-        var url = 'http://jquery.com/';
+        var url = 'http://www.example.com/';
         if ( url.match($.regexpCommon('url')) ) {
            msg = url + " is a URL";
         } else {
@@ -104,7 +104,7 @@ Regular expression to match an email address.
 
     <script type="text/javascript"> 
     $(document).ready(function(){ 
-        var email = 'blah@blah.com';
+        var email = 'test@example.com';
         if ( email.match($.regexpCommon('email')) ) {
            msg = email + " is an email address";
         } else {
