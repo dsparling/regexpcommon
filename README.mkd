@@ -147,3 +147,71 @@ Regular expression to match a U.S. zip code.
         alert(msg); 
     });  
     </script>
+
+currencyUS
+----------
+
+Regular expression to match a U.S. currency.
+
+    <script type="text/javascript"> 
+    $(document).ready(function(){ 
+        var currencyUS = '$1,000.00';
+        if ( currencyUS.match($.regexpCommon('currencyUS')) ) {
+           msg = currencyUS + " is U.S. currency";
+        } else {
+           msg = currencyUS + " is not U.S. currency";
+        }
+        alert(msg); 
+    });  
+    </script>
+
+htmlHexCode
+-----------
+
+Regular expression to match an HTML hex code.
+
+    <script type="text/javascript"> 
+    $(document).ready(function(){ 
+        var htmlHexCode = '#ffffff';
+        if ( htmlHexCode.match($.regexpCommon('htmlHexCode')) ) {
+           msg = htmlHexCode + " is an HTML hex code ";
+        } else {
+           msg = htmlHexCode + " is not an HTML hex code";
+        }
+        alert(msg); 
+    });  
+    </script>
+
+dottedQuadIP
+------------
+
+Regular expression to match a U.S. zip code.
+
+    <script type="text/javascript"> 
+    $(document).ready(function(){ 
+        var quadIP = '127.0.0.1';
+        if ( quadIP.match($.regexpCommon('dottedQuadIP')) ) {
+           msg = quadIP + " is a dotted quad IP";
+        } else {
+           msg = quadIP + " is not a dotted quad IP";
+        }
+        alert(msg); 
+    });  
+    </script>
+
+macAddress
+----------
+
+Regular expression to match a MAC address.
+
+    <script type="text/javascript"> 
+    $(document).ready(function(){ 
+        var macAddress = '08:00:69:02:01:FC';
+        if ( macAddress.match($.regexpCommon('macAddress')) ) {
+           msg = macAddress + " is a MAC address";
+        } else {
+           msg = macAddress + " is not a MAC address";
+        }
+        alert(msg); 
+    });  
+    </script>
