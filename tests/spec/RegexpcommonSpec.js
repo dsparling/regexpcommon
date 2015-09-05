@@ -6,7 +6,9 @@ describe("Regexpcommon", function() {
   var ssnValue = '123-45-6789';
   var urlValue = 'http://www.example.com/';
   var emailValue = 'test@example.com';
-  var phoneValue = '(555)555-5555';
+  var usPhoneValue = '(555)555-5555';
+  var usZipValue = '12345-1111';
+  var usCurrencyValue = '$1,000';
 
   describe("numberInteger", function() {
     it("'" + integerValue + "' should match numberInteger", function() {
@@ -111,18 +113,52 @@ describe("Regexpcommon", function() {
   });
 
   describe("phoneNumberUS", function() {
-    it("'" + phoneValue + "' should match phoneNumberUS", function() {
-      match = phoneValue.match($.regexpCommon('phoneNumberUS'));
+    it("'" + usPhoneValue + "' should match phoneNumberUS", function() {
+      match = usPhoneValue.match($.regexpCommon('phoneNumberUS'));
       expect(match[0]).not.toBeNull();
     });
 
-    it("'" + phoneValue + "' should equal '" + phoneValue + "'", function() {
-      match = phoneValue.match($.regexpCommon('phoneNumberUS'));
-      expect(match[0]).toBe(phoneValue);
+    it("'" + usPhoneValue + "' should equal '" + usPhoneValue + "'", function() {
+      match = usPhoneValue.match($.regexpCommon('phoneNumberUS'));
+      expect(match[0]).toBe(usPhoneValue);
     });
 
     it("'" + stringValue + "' should not match phoneNumberUS", function() {
       match = stringValue.match($.regexpCommon('phoneNumberUS'));
+      expect(match).toBeNull();
+    });
+  });
+
+  describe("zipCodeUS", function() {
+    it("'" + usZipValue + "' should match zipCodeUS", function() {
+      match = usZipValue.match($.regexpCommon('zipCodeUS'));
+      expect(match[0]).not.toBeNull();
+    });
+
+    it("'" + usZipValue + "' should equal '" + usZipValue + "'", function() {
+      match = usZipValue.match($.regexpCommon('zipCodeUS'));
+      expect(match[0]).toBe(usZipValue);
+    });
+
+    it("'" + stringValue + "' should not match zipCodeUS", function() {
+      match = stringValue.match($.regexpCommon('zipCodeUS'));
+      expect(match).toBeNull();
+    });
+  });
+
+  describe("currencyUS", function() {
+    it("'" + usCurrencyValue + "' should match currencyUS", function() {
+      match = usCurrencyValue.match($.regexpCommon('currencyUS'));
+      expect(match[0]).not.toBeNull();
+    });
+
+    it("'" + usCurrencyValue + "' should equal '" + usCurrencyValue + "'", function() {
+      match = usCurrencyValue.match($.regexpCommon('currencyUS'));
+      expect(match[0]).toBe(usCurrencyValue);
+    });
+
+    it("'" + stringValue + "' should not match currencyUS", function() {
+      match = stringValue.match($.regexpCommon('currencyUS'));
       expect(match).toBeNull();
     });
   });
