@@ -9,6 +9,9 @@ describe("Regexpcommon", function() {
   var usPhoneValue = '(555)555-5555';
   var usZipValue = '12345-1111';
   var usCurrencyValue = '$1,000';
+  var htmlHexCodeValue = '#ffffff';
+  var quadIpValue = '127.0.0.1';
+  var macAddressValue = '08:00:69:02:01:FC';
 
   describe("numberInteger", function() {
     it("'" + integerValue + "' should match numberInteger", function() {
@@ -159,6 +162,57 @@ describe("Regexpcommon", function() {
 
     it("'" + stringValue + "' should not match currencyUS", function() {
       match = stringValue.match($.regexpCommon('currencyUS'));
+      expect(match).toBeNull();
+    });
+  });
+
+  describe("htmlHexCode", function() {
+    it("'" + htmlHexCodeValue + "' should match htmlHexCode", function() {
+      match = htmlHexCodeValue.match($.regexpCommon('htmlHexCode'));
+      expect(match[0]).not.toBeNull();
+    });
+
+    it("'" + htmlHexCodeValue + "' should equal '" + htmlHexCodeValue + "'", function() {
+      match = htmlHexCodeValue.match($.regexpCommon('htmlHexCode'));
+      expect(match[0]).toBe(htmlHexCodeValue);
+    });
+
+    it("'" + stringValue + "' should not match htmlHexCode", function() {
+      match = stringValue.match($.regexpCommon('htmlHexCode'));
+      expect(match).toBeNull();
+    });
+  });
+
+  describe("dottedQuadIP", function() {
+    it("'" + quadIpValue + "' should match dottedQuadIP", function() {
+      match = quadIpValue.match($.regexpCommon('dottedQuadIP'));
+      expect(match[0]).not.toBeNull();
+    });
+
+    it("'" + quadIpValue + "' should equal '" + quadIpValue + "'", function() {
+      match = quadIpValue.match($.regexpCommon('dottedQuadIP'));
+      expect(match[0]).toBe(quadIpValue);
+    });
+
+    it("'" + stringValue + "' should not match dottedQuadIP", function() {
+      match = stringValue.match($.regexpCommon('dottedQuadIP'));
+      expect(match).toBeNull();
+    });
+  });
+
+  describe("macAddress", function() {
+    it("'" + macAddressValue + "' should match dottedQuadIP", function() {
+      match = macAddressValue.match($.regexpCommon('macAddress'));
+      expect(match[0]).not.toBeNull();
+    });
+
+    it("'" + macAddressValue + "' should equal '" + macAddressValue + "'", function() {
+      match = macAddressValue.match($.regexpCommon('macAddress'));
+      expect(match[0]).toBe(macAddressValue);
+    });
+
+    it("'" + stringValue + "' should not match macAddress", function() {
+      match = stringValue.match($.regexpCommon('macAddress'));
       expect(match).toBeNull();
     });
   });
